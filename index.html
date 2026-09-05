@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Arpan Dipakbhai Petkar -  Student Portfolio">
+<title>Arpan Petkar | Developer Portfolio</title>
+
+<style>
+/* =========================================================
+   ARPAN PETKAR — ONE FILE PORTFOLIO
+   HTML + CSS in a single file
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg:#f5f6f2;
+  --surface:#ffffff;
+  --ink:#111318;
+  --muted:#6d717a;
+  --line:#e2e4df;
+  --dark:#101114;
+  --dark-2:#17181c;
+  --accent:#d9ff4f;
+  --accent-dark:#718900;
+  --soft:#eef3d6;
+  --shadow:0 25px 70px rgba(18,20,22,.10);
+  --sans:"DM Sans",Arial,sans-serif;
+  --display:"Space Grotesk",Arial,sans-serif;
+  --radius:22px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+.container{width:min(1180px,calc(100% - 44px));margin:auto}
+
+/* ---------- NAV ---------- */
+.navbar{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:1000;
+  height:76px;
+  background:rgba(245,246,242,.84);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(17,19,24,.08);
+}
+.nav{
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.logo{
+  font:700 25px var(--display);
+  letter-spacing:-2px;
+}
+.logo span{color:var(--accent-dark)}
+.nav-links{display:flex;gap:30px}
+.nav-links a{
+  font-size:13px;
+  font-weight:700;
+  color:#686b72;
+  transition:.2s;
+}
+.nav-links a:hover{color:#111}
+.nav-cta{
+  padding:10px 17px;
+  border:1px solid #17181b;
+  border-radius:50px;
+  font-size:12px;
+  font-weight:700;
+  transition:.2s;
+}
+.nav-cta:hover{background:#111;color:#fff}
+
+/* ---------- HERO ---------- */
+.hero{
+  min-height:100vh;
+  padding:145px 0 90px;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  background:
+    radial-gradient(circle at 82% 17%,rgba(217,255,79,.42),transparent 26%),
+    radial-gradient(circle at 6% 90%,rgba(255,255,255,.9),transparent 25%),
+    var(--bg);
+}
+.hero-grid{
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  gap:85px;
+  align-items:center;
+}
+.hero-kicker{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  font-size:11px;
+  font-weight:800;
+  color:#777a80;
+}
+.hero-kicker i{
+  width:8px;height:8px;border-radius:50%;
+  background:#8ea900;
+  box-shadow:0 0 0 6px #e7f1bd;
+}
+.hero h1{
+  font:700 clamp(58px,8vw,105px)/.88 var(--display);
+  letter-spacing:-.075em;
+  margin:22px 0 28px;
+}
+.hero h1 em{
+  font-style:normal;
+  color:#718900;
+}
+.hero-description{
+  max-width:650px;
+  color:#5e626a;
+  font-size:17px;
+  line-height:1.75;
+}
+.hero-description strong{color:#18191d}
+.hero-buttons{
+  display:flex;
+  gap:12px;
+  margin:32px 0 30px;
+  flex-wrap:wrap;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:28px;
+  padding:14px 20px;
+  border-radius:50px;
+  font-size:12px;
+  font-weight:800;
+  transition:.25s;
+}
+.btn-dark{background:#121316;color:#fff}
+.btn-dark:hover{transform:translateY(-3px);box-shadow:0 12px 25px rgba(0,0,0,.18)}
+.btn-light{border:1px solid #cdd0ca;background:rgba(255,255,255,.4)}
+.btn-light:hover{background:#fff;transform:translateY(-3px)}
+.hero-contact{
+  display:flex;
+  gap:22px;
+  flex-wrap:wrap;
+  color:#72757c;
+  font-size:12px;
+}
+.hero-contact span{display:flex;align-items:center;gap:7px}
+
+/* ---------- PROFILE CARD ---------- */
+.profile-wrap{position:relative}
+.profile-card{
+  min-height:500px;
+  background:var(--dark);
+  color:#fff;
+  border-radius:8px;
+  padding:34px;
+  position:relative;
+  overflow:hidden;
+  box-shadow:25px 25px 0 #d2d7c4;
+  transform:rotate(1deg);
+}
+.profile-card:before{
+  content:"";
+  position:absolute;
+  width:300px;height:300px;
+  border-radius:50%;
+  background:var(--accent);
+  opacity:.12;
+  right:-130px;top:-130px;
+}
+.profile-top{
+  display:flex;
+  justify-content:space-between;
+  color:#777a82;
+  font-size:11px;
+}
+.profile-top .green{
+  width:8px;height:8px;
+  border-radius:50%;
+  background:var(--accent);
+}
+.avatar{
+  width:115px;height:115px;
+  border:1px solid #4b4d52;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  color:var(--accent);
+  font:600 35px var(--display);
+  margin:48px 0 25px;
+}
+.profile-small{
+  font-size:10px;
+  letter-spacing:.2em;
+  color:#85878d;
+}
+.profile-card h2{
+  font:600 50px/.87 var(--display);
+  letter-spacing:-.075em;
+  margin:10px 0 24px;
+}
+.profile-rule{height:1px;background:#393a3f}
+.profile-role{
+  color:#b9bbc0;
+  font-size:14px;
+  margin-top:18px;
+}
+.profile-bottom{
+  position:absolute;
+  bottom:30px;left:34px;right:34px;
+  padding-top:14px;
+  border-top:1px solid #393a3f;
+  display:flex;justify-content:space-between;
+  color:#8c8e95;
+  font-size:10px;
+  letter-spacing:.16em;
+}
+
+/* ---------- SECTION COMMON ---------- */
+section{scroll-margin-top:76px}
+.section{padding:120px 0}
+.section-header{
+  display:grid;
+  grid-template-columns:80px 1fr;
+  gap:25px;
+  margin-bottom:65px;
+}
+.section-no{
+  font:600 13px var(--display);
+  color:#8b8e93;
+}
+.eyebrow{
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.2em;
+  font-weight:800;
+  color:#7a7d83;
+}
+.section-header h2{
+  font:600 clamp(44px,6vw,76px)/.93 var(--display);
+  letter-spacing:-.07em;
+  margin-top:10px;
+}
+.section-header h2 span{color:#718900}
+.dark-section{
+  background:var(--dark);
+  color:#fff;
+}
+.dark-section .section-no,
+.dark-section .eyebrow{color:#8d9097}
+.dark-section .section-header h2 span{color:var(--accent)}
+
+/* ---------- ABOUT ---------- */
+.about-grid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:90px;
+  align-items:center;
+}
+.about-lead{
+  font-size:24px;
+  line-height:1.5;
+  letter-spacing:-.02em;
+}
+.about-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:40px;
+  box-shadow:var(--shadow);
+  position:relative;
+}
+.about-card:before{
+  content:"";
+  position:absolute;
+  top:0;left:0;
+  width:70px;height:5px;
+  background:var(--accent);
+}
+.quote{
+  font:700 60px/.6 Georgia,serif;
+  color:#9fb62d;
+}
+.about-card h3{
+  font:600 29px var(--display);
+  letter-spacing:-.05em;
+  margin:13px 0 8px;
+}
+.about-card p{font-size:13px;color:#777b82}
+
+/* ---------- EDUCATION ---------- */
+.timeline{border-top:1px solid #383a3f}
+.edu{
+  display:grid;
+  grid-template-columns:170px 1fr 110px;
+  gap:35px;
+  padding:35px 0;
+  border-bottom:1px solid #383a3f;
+  align-items:center;
+}
+.edu-year{font:600 13px var(--display);color:#999ca4}
+.edu-label{
+  font-size:9px;
+  letter-spacing:.18em;
+  color:#8f9299;
+  margin-bottom:7px;
+}
+.edu h3{
+  font:600 22px var(--display);
+  letter-spacing:-.04em;
+}
+.edu p{font-size:13px;color:#9c9ea4;margin-top:6px}
+.edu-score{
+  justify-self:end;
+  font:700 26px var(--display);
+  color:var(--accent);
+}
+
+/* ---------- SKILLS ---------- */
+.skills-section{background:#ecece7}
+.skills-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+}
+.skill{
+  min-height:285px;
+  padding:28px;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:16px;
+  position:relative;
+  transition:.25s;
+}
+.skill:hover{
+  transform:translateY(-8px);
+  box-shadow:14px 18px 0 #dce1c9;
+}
+.skill-number{
+  position:absolute;
+  top:22px;right:22px;
+  color:#a0a2a6;
+  font-size:10px;
+}
+.skill-icon{
+  width:46px;height:46px;
+  border-radius:12px;
+  display:grid;place-items:center;
+  background:#f0f4db;
+  color:#718900;
+  font:700 15px var(--display);
+  margin-bottom:65px;
+}
+.skill h3{
+  font:600 19px var(--display);
+  letter-spacing:-.03em;
+  margin-bottom:18px;
+}
+.tags{display:flex;gap:7px;flex-wrap:wrap}
+.tags span{
+  border:1px solid #dedfd9;
+  border-radius:50px;
+  padding:6px 9px;
+  color:#666970;
+  font-size:9px;
+}
+
+/* ---------- RESULTS ---------- */
+.result-top{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  padding-bottom:35px;
+  margin-bottom:25px;
+  border-bottom:1px solid #393b40;
+}
+.latest small{
+  display:block;
+  color:#8c8f96;
+  letter-spacing:.17em;
+  font-size:9px;
+}
+.latest strong{
+  display:block;
+  color:var(--accent);
+  font:600 86px/.9 var(--display);
+  letter-spacing:-.08em;
+  margin-top:7px;
+}
+.result-note{color:#a5a7ad;font-size:12px}
+.table-wrap{overflow:auto}
+table{width:100%;border-collapse:collapse;min-width:650px}
+th,td{
+  text-align:left;
+  padding:18px 15px;
+  border-bottom:1px solid #34363b;
+}
+th{
+  color:#858890;
+  font-size:9px;
+  text-transform:uppercase;
+  letter-spacing:.15em;
+}
+td{font-size:13px;color:#d3d4d8}
+td b{color:var(--accent);font-size:10px}
+
+/* ---------- CONTACT ---------- */
+.contact{
+  background:var(--accent);
+  padding:120px 0;
+}
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:100px;
+}
+.contact h2{
+  font:600 clamp(52px,7vw,90px)/.9 var(--display);
+  letter-spacing:-.075em;
+  margin:12px 0 25px;
+}
+.contact h2 em{font-style:normal;color:#647900}
+.contact-copy{
+  max-width:500px;
+  color:#48511d;
+  font-size:15px;
+}
+.contact-list{border-top:1px solid #a8ba5b}
+.contact-item{
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+  padding:20px 0;
+  border-bottom:1px solid #a8ba5b;
+}
+.contact-item small{
+  font-size:9px;
+  letter-spacing:.17em;
+  font-weight:800;
+  color:#68751f;
+}
+.contact-item span{
+  font:600 19px var(--display);
+  letter-spacing:-.02em;
+}
+
+/* ---------- FOOTER ---------- */
+footer{
+  background:#0d0e10;
+  color:#85878c;
+}
+.footer{
+  min-height:75px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  font-size:9px;
+  letter-spacing:.14em;
+}
+.footer strong,.footer a{color:#fff}
+
+/* ---------- ANIMATION ---------- */
+@keyframes rise{
+  from{opacity:0;transform:translateY(22px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.hero-content{animation:rise .8s ease both}
+.profile-wrap{animation:rise .8s .15s ease both}
+.skill{animation:rise .7s ease both}
+
+/* ---------- MOBILE ---------- */
+@media(max-width:900px){
+  .nav-links{display:none}
+  .hero-grid,.about-grid,.contact-grid{
+    grid-template-columns:1fr;
+    gap:65px;
+  }
+  .profile-wrap{max-width:530px;width:100%;margin:auto}
+  .skills-grid{grid-template-columns:1fr 1fr}
+  .section{padding:90px 0}
+}
+@media(max-width:600px){
+  .container{width:calc(100% - 28px)}
+  .navbar{height:68px}
+  .nav-cta{padding:9px 13px}
+  .hero{padding:125px 0 80px}
+  .hero h1{font-size:59px}
+  .hero-description{font-size:15px}
+  .hero-contact{flex-direction:column;gap:9px}
+  .profile-card{min-height:445px;box-shadow:12px 12px 0 #d2d7c4}
+  .section-header{grid-template-columns:40px 1fr;gap:12px;margin-bottom:45px}
+  .section-header h2{font-size:47px}
+  .about-lead{font-size:19px}
+  .edu{grid-template-columns:1fr;gap:7px}
+  .edu-score{justify-self:start}
+  .skills-grid{grid-template-columns:1fr}
+  .result-top{flex-direction:column;align-items:flex-start;gap:18px}
+  .latest strong{font-size:70px}
+  .contact h2{font-size:57px}
+  .footer{padding:25px 0;flex-direction:column}
+}
+
+/* =========================================================
+   EXTRA RESPONSIVE FIXES — PHONE / TABLET
+   ========================================================= */
+
+/* Prevent long text, tables and cards from causing horizontal scroll */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img, svg, video {
+  max-width: 100%;
+  height: auto;
+}
+
+.btn, .nav-cta, .contact-item span, td, th {
+  overflow-wrap: anywhere;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .container {
+    width: min(100% - 36px, 720px);
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 125px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 55px;
+  }
+
+  .hero h1 {
+    font-size: clamp(52px, 10vw, 78px);
+  }
+
+  .profile-wrap {
+    width: min(100%, 560px);
+  }
+
+  .about-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .edu {
+    grid-template-columns: 140px minmax(0, 1fr) 80px;
+    gap: 20px;
+  }
+}
+
+/* Phone */
+@media (max-width: 600px) {
+  .container {
+    width: calc(100% - 28px);
+  }
+
+  .navbar {
+    height: 64px;
+  }
+
+  .nav {
+    gap: 10px;
+  }
+
+  .logo {
+    font-size: 22px;
+    letter-spacing: -1.5px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-cta {
+    padding: 8px 12px;
+    font-size: 10px;
+    white-space: nowrap;
+  }
+
+  .hero {
+    padding: 105px 0 65px;
+  }
+
+  .hero-grid {
+    gap: 42px;
+  }
+
+  .hero h1 {
+    font-size: clamp(47px, 15vw, 62px);
+    line-height: .9;
+    letter-spacing: -.065em;
+    margin: 18px 0 22px;
+  }
+
+  .hero-description {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    margin: 26px 0;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: space-between;
+    padding: 14px 18px;
+  }
+
+  .hero-contact {
+    flex-direction: column;
+    gap: 8px;
+    font-size: 11px;
+  }
+
+  .profile-wrap {
+    width: calc(100% - 10px);
+  }
+
+  .profile-card {
+    min-height: 420px;
+    padding: 25px;
+    transform: rotate(0);
+    box-shadow: 10px 10px 0 #d2d7c4;
+  }
+
+  .avatar {
+    width: 88px;
+    height: 88px;
+    font-size: 28px;
+    margin: 40px 0 20px;
+  }
+
+  .profile-card h2 {
+    font-size: 42px;
+  }
+
+  .profile-bottom {
+    left: 25px;
+    right: 25px;
+    bottom: 24px;
+    font-size: 8px;
+  }
+
+  .section {
+    padding: 72px 0;
+  }
+
+  section {
+    scroll-margin-top: 64px;
+  }
+
+  .section-header {
+    grid-template-columns: 32px minmax(0, 1fr);
+    gap: 10px;
+    margin-bottom: 38px;
+  }
+
+  .section-header h2 {
+    font-size: clamp(39px, 12vw, 52px);
+  }
+
+  .about-grid {
+    gap: 30px;
+  }
+
+  .about-lead {
+    font-size: 18px;
+    line-height: 1.55;
+  }
+
+  .about-card {
+    padding: 30px 24px;
+  }
+
+  .quote {
+    font-size: 48px;
+  }
+
+  .about-card h3 {
+    font-size: 24px;
+  }
+
+  .edu {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 25px 0;
+  }
+
+  .edu-year {
+    font-size: 11px;
+  }
+
+  .edu h3 {
+    font-size: 19px;
+  }
+
+  .edu p {
+    font-size: 12px;
+  }
+
+  .edu-score {
+    justify-self: start;
+    font-size: 22px;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .skill {
+    min-height: auto;
+    padding: 24px;
+  }
+
+  .skill-icon {
+    margin-bottom: 42px;
+  }
+
+  .result-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    padding-bottom: 25px;
+  }
+
+  .latest strong {
+    font-size: 64px;
+  }
+
+  .result-note {
+    font-size: 11px;
+  }
+
+  .table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 10px;
+  }
+
+  table {
+    min-width: 590px;
+  }
+
+  th, td {
+    padding: 14px 10px;
+  }
+
+  .contact {
+    padding: 75px 0;
+  }
+
+  .contact-grid {
+    gap: 38px;
+  }
+
+  .contact h2 {
+    font-size: clamp(45px, 14vw, 60px);
+  }
+
+  .contact-copy {
+    font-size: 14px;
+  }
+
+  .contact-item {
+    padding: 17px 0;
+  }
+
+  .contact-item span {
+    font-size: 16px;
+  }
+
+  .footer {
+    padding: 24px 0;
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .container {
+    width: calc(100% - 22px);
+  }
+
+  .nav-cta {
+    padding: 7px 9px;
+    font-size: 9px;
+  }
+
+  .hero h1 {
+    font-size: 45px;
+  }
+
+  .profile-card h2 {
+    font-size: 38px;
+  }
+
+  .section-header h2 {
+    font-size: 37px;
+  }
+
+  .contact h2 {
+    font-size: 43px;
+  }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<header class="navbar">
+  <div class="container nav">
+    <a href="#home" class="logo">AP<span>.</span></a>
+
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#results">Results</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a href="#contact" class="nav-cta">Let's Connect ↗</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+
+    <div class="hero-content">
+      <div class="hero-kicker">
+        <i></i>
+        MCA Student · Aspiring Developer
+      </div>
+
+      <h1>Turning curiosity<br>into <em>code.</em></h1>
+
+      <p class="hero-description">
+        I'm <strong>Arpan Dipakbhai Petkar</strong>, a MCA student currently. 
+        I'm eager to learn new technologies, build practical skills,
+        and grow into a professional developer.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-dark">Let's Connect <span>→</span></a>
+        <a href="#skills" class="btn btn-light">Explore Skills <span>↓</span></a>
+      </div>
+
+      <div class="hero-contact">
+        <span>📍 Vadodara, Gujarat</span>
+        <span>✉ petkararpan01@gmail.com</span>
+      </div>
+    </div>
+
+    <div class="profile-wrap">
+      <div class="profile-card">
+        <div class="profile-top">
+          <span>PORTFOLIO / 01</span>
+          <i class="green"></i>
+        </div>
+
+        <div class="avatar">AP</div>
+
+        <p class="profile-small">HELLO, I'M</p>
+        <h2>Arpan<br>Petkar</h2>
+
+        <div class="profile-rule"></div>
+
+        <p class="profile-role">
+          MCA Student &<br>
+          Aspiring Web Developer
+        </p>
+
+        <div class="profile-bottom">
+          <span>2023 — 2026</span>
+          <span>VADODARA</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="container">
+
+    <div class="section-header">
+      <span class="section-no">01</span>
+      <div>
+        <p class="eyebrow">About me</p>
+        <h2>A learner with a<br><span>developer mindset.</span></h2>
+      </div>
+    </div>
+
+    <div class="about-grid">
+      <p class="about-lead">
+        As a fresher, I am eager to learn new technologies and improve my
+        knowledge in computer applications. I am looking for an opportunity
+        where I can gain practical experience, develop my technical skills,
+        grow professionally, and contribute to an organization.
+      </p>
+
+      <div class="about-card">
+        <div class="quote">“</div>
+        <h3>Learn. Build. Improve. Repeat.</h3>
+        <p>A simple mindset for growing in technology and becoming a better developer.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="section dark-section" id="education">
+  <div class="container">
+
+    <div class="section-header">
+      <span class="section-no">02</span>
+      <div>
+        <p class="eyebrow">Education</p>
+        <h2>My academic<br><span>journey.</span></h2>
+      </div>
+    </div>
+
+    <div class="timeline">
+
+      <article class="edu">
+        <div class="edu-year">2023 — 2026</div>
+        <div>
+          <div class="edu-label">UNDERGRADUATE DEGREE</div>
+          <h3>Bachelor of Computer Applications</h3>
+          <p>BCA · Completed · 2023 — 2026</p>
+        </div>
+        <div class="edu-score">BCA</div>
+      </article>
+
+      <article class="edu">
+        <div class="edu-year">2022 — 2023</div>
+        <div>
+          <div class="edu-label">HIGHER SECONDARY · COMMERCE</div>
+          <h3>HSC — Commerce</h3>
+          <p>Shree Vidhyamandir Vidhyalaya · GSEB · </p>
+        </div>
+        <div class="edu-score">12th</div>
+      </article>
+
+      <article class="edu">
+        <div class="edu-year">2020 — 2021</div>
+        <div>
+          <div class="edu-label">SECONDARY SCHOOL</div>
+          <h3>SSC </h3>
+          <p>Shree Vidhyamandir Vidhyalaya · GSEB · </p>
+        </div>
+        <div class="edu-score">10th</div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section skills-section" id="skills">
+  <div class="container">
+
+    <div class="section-header">
+      <span class="section-no">03</span>
+      <div>
+        <p class="eyebrow">What I know</p>
+        <h2>Technical<br><span>toolkit.</span></h2>
+      </div>
+    </div>
+
+    <div class="skills-grid">
+
+      <article class="skill">
+        <span class="skill-number">01</span>
+        <div class="skill-icon">&lt;/&gt;</div>
+        <h3>Web Technologies</h3>
+        <div class="tags">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript · Basic</span>
+        </div>
+      </article>
+
+      <article class="skill">
+        <span class="skill-number">02</span>
+        <div class="skill-icon">⚙</div>
+        <h3>Backend & Frameworks</h3>
+        <div class="tags">
+          <span>Node.js · Basic</span>
+          <span>Express.js · Basic</span>
+        </div>
+      </article>
+
+      <article class="skill">
+        <span class="skill-number">03</span>
+        <div class="skill-icon">◫</div>
+        <h3>Databases</h3>
+        <div class="tags">
+          <span>MongoDB · Basic</span>
+          <span>MySQL / SQL · Basic</span>
+        </div>
+      </article>
+
+      <article class="skill">
+        <span class="skill-number">04</span>
+        <div class="skill-icon">⌘</div>
+        <h3>Programming Languages</h3>
+        <div class="tags">
+          <span>C</span>
+          <span>C++</span>
+          <span>Python · Basic</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ACADEMIC RESULTS -->
+<section class="section dark-section" id="results">
+  <div class="container">
+
+    <div class="section-header">
+      <span class="section-no">04</span>
+      <div>
+        <p class="eyebrow">Academic results</p>
+        <h2>Progress that<br><span>keeps moving.</span></h2>
+      </div>
+    </div>
+
+    <div class="result-top">
+      <div class="latest">
+        <small>OVERALL CGPA</small>
+        <strong>8.14</strong>
+      </div>
+      <div class="result-note">
+        <b>SEM 6 SGPA 8.27</b><br>
+        All listed semesters PASS
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Semester</th>
+            <th>Session / Year</th>
+            <th>SGPA</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Semester 1</td>
+            <td>Winter 2023</td>
+            <td>7.00</td>
+            <td><b>PASS</b></td>
+          </tr>
+          <tr>
+            <td>Semester 2</td>
+            <td>Summer 2024</td>
+            <td>7.64</td>
+            <td><b>PASS</b></td>
+          </tr>
+          <tr>
+            <td>Semester 3</td>
+            <td>Winter 2024</td>
+            <td>7.82</td>
+            <td><b>PASS</b></td>
+          </tr>
+          <tr>
+            <td>Semester 4</td>
+            <td>Summer 2025</td>
+            <td>7.82</td>
+            <td><b>PASS</b></td>
+          </tr>
+          <tr>
+            <td>Semester 5</td>
+            <td>Winter 2025</td>
+            <td>8.00</td>
+            <td><b>PASS</b></td>
+          </tr>
+          <tr>
+            <td>Semester 6</td>
+            <td>Summer 2026</td>
+            <td>8.27</td>
+            <td><b>PASS</b></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+
+    <div>
+      <span class="section-no">05</span>
+      <p class="eyebrow">Contact</p>
+      <h2>Let's build<br>something <em>great.</em></h2>
+      <p class="contact-copy">
+        Open to internships, learning opportunities and entry-level roles
+        where I can apply my skills, learn from experienced people and grow
+        as a developer.
+      </p>
+    </div>
+
+    <div class="contact-list">
+
+      <a class="contact-item" href="mailto:petkararpan01@gmail.com">
+        <small>EMAIL</small>
+        <span>petkararpan01@gmail.com ↗</span>
+      </a>
+
+      <a class="contact-item" href="tel:+917990662682">
+        <small>PHONE</small>
+        <span>+91 7990662682 ↗</span>
+      </a>
+
+      <div class="contact-item">
+        <small>LOCATION</small>
+        <span>Vadodara, Gujarat, India</span>
+      </div>
+
+      <div class="contact-item">
+        <small>ADDRESS</small>
+        <span>Din Dayal Nagar-2, Gotri Road, Vadodara</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container footer">
+    <strong>ARPAN PETKAR</strong>
+    <span>© 2026 · BCA STUDENT</span>
+    <a href="#home">BACK TO TOP ↑</a>
+  </div>
+</footer>
+
+</body>
+</html>
